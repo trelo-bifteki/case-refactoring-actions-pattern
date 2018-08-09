@@ -4,11 +4,12 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Service
 @Slf4j
-public class NetworkService {
+@Service
+public class OperatorService {
 
 	public void disableById(final Long id) {
-		log.info("Disabling network: {}", id);
+		log.info("disable operator by ID: {}", id);
 	}
+	
 }
