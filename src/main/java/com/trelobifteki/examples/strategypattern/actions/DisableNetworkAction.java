@@ -3,14 +3,27 @@ package com.trelobifteki.examples.strategypattern.actions;
 import org.springframework.stereotype.Component;
 
 import com.trelobifteki.examples.strategypattern.model.Network;
+import com.trelobifteki.examples.strategypattern.service.NetworkService;
 
 @Component
 public class DisableNetworkAction implements NetworkAction{
 
+	private final NetworkService networkService;
+	
+	public DisableNetworkAction(final NetworkService networkService) {
+		this.networkService = networkService;
+	}
+	
 	@Override
 	public boolean supports(final Network network) {
-		// TODO Auto-generated method stub
 		return !network.isDisabled();
 	}
+
+	@Override
+	public void execute(Network network) {
+		networkService.disableById(network.getId());
+	}
+	
+	
 
 }
