@@ -1,4 +1,4 @@
-package com.trelobifteki.examples.strategypattern.strategypatternexample;
+package com.trelobifteki.examples.strategypattern;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
