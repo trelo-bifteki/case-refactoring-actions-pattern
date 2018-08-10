@@ -11,6 +11,7 @@ import com.trelobifteki.examples.strategypattern.actions.ShutdownNetworkAction;
 import com.trelobifteki.examples.strategypattern.model.Network;
 
 public class ShutdownNetworkActionUTest {
+	private static final Long NETWORK_ID = 1L;
 	
 	private final DisableNetworkAction disableNetworkAction = Mockito.mock(DisableNetworkAction.class);
 	private final SetStatusClosedNetworkAction setStatusClosedNetworkAction = Mockito.mock(SetStatusClosedNetworkAction.class);
@@ -25,7 +26,7 @@ public class ShutdownNetworkActionUTest {
 	
 	@Test
 	public void testSupportsWhenBothActionsSupportedThenReturnTrue() {
-		final Network network = new Network();
+		final Network network = new Network(NETWORK_ID);
 		
 		Mockito.when(disableNetworkAction.supports(network)).thenReturn(true);
 		Mockito.when(setStatusClosedNetworkAction.supports(network)).thenReturn(true);
@@ -40,7 +41,7 @@ public class ShutdownNetworkActionUTest {
 
 	@Test
 	public void testSupportsWhenOnActionSupportedThenReturnFalse() {
-		final Network network = new Network();
+		final Network network = new Network(NETWORK_ID);
 		
 		Mockito.when(disableNetworkAction.supports(network)).thenReturn(false);
 		Mockito.when(setStatusClosedNetworkAction.supports(network)).thenReturn(true);

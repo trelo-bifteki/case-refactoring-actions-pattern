@@ -20,6 +20,7 @@ public class ShutdownNetworkAction implements NetworkAction {
 	@Override
 	public boolean supports(Network network) {
 		return ConditionBuilder.create(network)
+				.isValid()
 				.supportAll(disableNetworkAction, setStatusClosedNetworkAction)
 				.build();
 	}

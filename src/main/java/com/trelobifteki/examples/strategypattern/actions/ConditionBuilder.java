@@ -21,14 +21,18 @@ public class ConditionBuilder {
 	public static ConditionBuilder create(final Network network) {
 		return new ConditionBuilder(network);
 	}
+	
+	public ConditionBuilder isValid() {
+		return validate(network.getId() > 0);
+	}
 
 	public ConditionBuilder supportAll(final NetworkAction... actions) {
-		final boolean condition = Stream.of(actions).allMatch(action -> action.supports(network));
-		validate(condition);
-		return this;
+		final boolean allSupported = Stream.of(actions).allMatch(action -> action.supports(network));
+		return validate(allSupported);
 	}
 	
-	private void validate(final boolean condition) {
+	private ConditionBuilder validate(final boolean condition) {
 		result = result && condition;
+		return this;
 	}
 }
