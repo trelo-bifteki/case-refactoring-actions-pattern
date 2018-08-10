@@ -6,9 +6,15 @@ import com.trelobifteki.examples.strategypattern.model.Network;
 import com.trelobifteki.examples.strategypattern.service.NetworkService;
 
 @Component
-public class DisableNetworkAction implements NetworkAction{
+public class DisableNetworkAction implements NetworkAction {
 
 	private final NetworkService networkService;
+	
+	@Override
+	public String getLabel() {
+		return "Disable network";
+	}
+
 	
 	public DisableNetworkAction(final NetworkService networkService) {
 		this.networkService = networkService;
@@ -23,7 +29,5 @@ public class DisableNetworkAction implements NetworkAction{
 	public void execute(Network network) {
 		networkService.disableById(network.getId());
 	}
-	
-	
 
 }
