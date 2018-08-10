@@ -24,7 +24,7 @@ public class NetworkActionService {
 	public List<String> findAvailableActionLabelsByNetwork(@NonNull final Network network) {
 		return networkActions.stream()
 				.filter(action -> action.supports(network))
-				.map(action -> action.getLabel())
+				.map(NetworkAction::getLabel)
 				.collect(Collectors.toList());
 	}
 }
