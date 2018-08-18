@@ -2,7 +2,9 @@ package com.trelobifteki.examples.strategypattern.actions;
 
 import com.trelobifteki.examples.strategypattern.model.Network;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ShutdownNetworkAction implements NetworkAction {
 
 	private final SetStatusClosedNetworkAction setStatusClosedNetworkAction;

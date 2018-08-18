@@ -4,7 +4,9 @@ import com.trelobifteki.examples.strategypattern.model.Network;
 import com.trelobifteki.examples.strategypattern.model.NetworkStatus;
 import com.trelobifteki.examples.strategypattern.service.NetworkService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SetStatusClosedNetworkAction implements NetworkAction {
 
 	private final NetworkService networkService;
